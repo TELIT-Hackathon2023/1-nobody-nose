@@ -2,18 +2,18 @@ import json
 
 class Rating:
 
-    def __init__(self) -> None:
+    def __init__(self, template_path) -> None:
         
         self.template: json = None
 
-        self.load_template()
+        self.load_template(template_path=template_path)
 
 
-    def load_template(self):
+    def load_template(self, template_path):
         """extracts rating template as .json
         """
 
-        json_file_path = 'template.json'
+        json_file_path = template_path
 
         # Otevření a načtení JSON souboru
         with open(json_file_path, 'r') as json_file:

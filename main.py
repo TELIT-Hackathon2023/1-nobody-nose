@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from gpt.gpt import get_response
+from Rating.Rating import Rating
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    
+        
+    rating = Rating(template_path="Rating/template.json")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    prompt = rating.get_prompt()
+
+    output = get_response(prompt=prompt, url="https://telekom.sk")
+
+    print(type(output))
+    print(output)
+
+    #score = rating.extract_website_name(filled_template=output)
+
+    #print(score)
+
+

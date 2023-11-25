@@ -47,7 +47,7 @@ def get_response(prompt, url):
     api_key = os.getenv("OPENAI_API_KEY")
     html_content = scrape_html(url)
     response = analyze_html_with_gpt(prompt, html_content, api_key)
-    print(response)
+    return response
 
 
 
