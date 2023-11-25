@@ -1,4 +1,5 @@
 import json
+import re
 
 class Rating:
 
@@ -55,10 +56,14 @@ class Rating:
         Returns:
             str: Score of the website.
         """
+        total_website_score = None
+        match = re.search(r'"Total Website Score": "([^"]+)"', filled_template)
+        if match:
+            total_website_score = match.group(1)
+        else:
+            total_website_score = "Not found"
 
-        filled = json.loads(filled_template)
-
-        return filled.get("Total Website Score", "Score not found")
+        return total_website_score
     
         
     def extract_website_name(self, filled_template: str) -> str:
@@ -70,9 +75,14 @@ class Rating:
         Returns:
             str: name of website
         """
-        filled = json.loads(filled_template)
+        page_title = None
+        match = re.search(r'"Page Title": "([^"]+)"', filled_template)
+        if match:
+            page_title = match.group(1)
+        else:
+            page_title = "Page title not found"
 
-        return filled.get("Website Evaluation", {}).get("Page Title", "Page Title not found")
+        return page_title
     
 
     def extract_evaluation_date(self, filled_template: str) -> str:
@@ -84,6 +94,11 @@ class Rating:
         Returns:
             str: date of evaluation
         """
-        filled = json.loads(filled_template)
+        evaluation_date = None
+        match = re.search(r'"Evaluation Date": "([^"]+)"', filled_template)
+        if match:
+            evaluation_date = match.group(1)
+        else:
+            evaluation_date = "Date not found"
 
-        return filled.get("Website Evaluation", {}).get("Evaluation Date", "Date not found")
+        return evaluation_date

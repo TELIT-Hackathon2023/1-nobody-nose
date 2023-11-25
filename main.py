@@ -20,8 +20,8 @@ if __name__ == '__main__':
     #print(type(output))
     print(output)
     print("--------------")
-    #score = rating.extract_score(output)
-    #print(f"score: {score}")
+    score = rating.extract_score(output)
+    print(f"WEBSITE FINAL SCORE: {score}")
 
 
 
