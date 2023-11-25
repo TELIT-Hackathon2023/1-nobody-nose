@@ -1,3 +1,5 @@
 .env
 .venv
+gpt/__pycache__
+Rating/__pycache__
 
