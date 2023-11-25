@@ -1,12 +1,10 @@
-
-
-from gpt.gpt import get_response
+#immport gpt
+from Gpt.gpt import get_response
 from Rating.Rating import Rating
 from Files.Files import Files
 
 if __name__ == '__main__':
     
-        
     rating = Rating(template_path="Rating/template.json")
     files = Files()
 
@@ -22,8 +20,6 @@ if __name__ == '__main__':
     #print(type(output))
     #print(output)
 
-    #score = rating.extract_website_name(filled_template=output)
 
-    #print(score)
 
 

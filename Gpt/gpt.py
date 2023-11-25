@@ -16,7 +16,7 @@ def scrape_html(url):
     except Exception as err:
         print(f"An error occurred: {err}")
 
-def analyze_html_with_gpt(prompt, html, api_key):
+def analyze_html_with_gpt(prompt, html, css, js, api_key):
     """
     This function takes HTML content and sends it to OpenAI's GPT-4 Turbo model for analysis using the new OpenAI API interface.
     It returns the model's response.
@@ -27,7 +27,7 @@ def analyze_html_with_gpt(prompt, html, api_key):
     """
     openai.api_key = api_key
 
-    prompt = f"{prompt}:\nHTML file you work with\n{html}"
+    prompt = f"{html}\n{css}\n{js}{prompt}"
 
     try:
         response = openai.ChatCompletion.create(
@@ -43,10 +43,10 @@ def analyze_html_with_gpt(prompt, html, api_key):
 
 
 #create main function
-def get_response(prompt, url):
+def get_response(prompt, html, css, js):
     api_key = os.getenv("OPENAI_API_KEY")
     html_content = scrape_html(url)
-    response = analyze_html_with_gpt(prompt, html_content, api_key)
+    response = analyze_html_with_gpt(prompt, html, css, js, api_key)
     return response
 
 
