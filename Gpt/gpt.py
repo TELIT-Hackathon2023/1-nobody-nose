@@ -1,20 +1,9 @@
 import openai
 from dotenv import load_dotenv
 import os
-import requests
 
 # Load the .env file
 load_dotenv()
-
-def scrape_html(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # This will raise an HTTPError if the HTTP request returned an unsuccessful status code.
-        return response.text
-    except requests.HTTPError as http_err:
-        print(f"HTTP error occurred: {http_err}")
-    except Exception as err:
-        print(f"An error occurred: {err}")
 
 def analyze_html_with_gpt(prompt, html, css, js, api_key):
     """
@@ -45,7 +34,6 @@ def analyze_html_with_gpt(prompt, html, css, js, api_key):
 #create main function
 def get_response(prompt):
     api_key = os.getenv("OPENAI_API_KEY")
-    html_content = scrape_html(url)
     response = analyze_html_with_gpt(prompt, api_key)
     return response
 
