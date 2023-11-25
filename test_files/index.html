@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <title>Leaguecheck</title>
+    <link rel="stylesheet" media="screen" href="public/css/screenStyle.css">
+    <link rel="stylesheet" media="print" href="public/css/printStyle.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="firstlook">
+    <div class="container">
+        <img src="fig/pic-dobra2.png" alt="Kobe Bryant" class="picleft">
+    </div>
+
+    <div class="container">
+        <h2 class="titulny">
+            LEAGUE
+        </h2>
+        <h2 class="titulny2">
+            CHECK
+        </h2>
+
+        <p class="about">
+            V tomto blogu sa budeme venovať najznámejšej basketbalovej lige na svete - NBA. Budeme pridávať aktuality,
+            zaujímavé príbehy a štatistiky.
+        </p>
+
+        <p class="autorinfo">
+            Adam Majirský <br>
+            <a href="mailto:adam.majirsky@student.tuke.sk" class="mail" >adam.majirsky@student.tuke.sk</a>
+        </p>
+
+    </div>
+
+
+
+</div>
+
+<main class="mainindex">
+
+    <div class="indexClanok">
+        <a href="article1.html">
+            <img src="fig/Kevin-Durant-pic.jpg" alt="Kevin Durant" class="previewPic">
+        </a>
+        <a href="article1.html" class="previewLink">Neobyčajný návrat Kevina Duranta</a>
+    </div>
+
+
+    <div class="indexClanok">
+        <a href="article2.html">
+            <img src="fig/Jimmy-Butler.jpg" alt="Jimmy Butler" class="previewPic">
+        </a>
+        <a href="article2.html" class="previewLink">Neuveriteľný príbeh Jimmyho Butlera</a>
+    </div>
+
+
+    <div class="indexClanok">
+        <a href="article3.html">
+            <img src="fig/zion-draftpick.jpg" alt="Draftovaný Zion Williamson" class="previewPic">
+        </a>
+        <a href="article3.html" class="previewLink">Aké ťažké je dostať sa do NBA?</a>
+    </div>
+
+    <!--action="#"-->
+    <form  id="Form">
+
+        <h5 class="hlavnyH5">
+            KONTAKTUJTE NÁS
+        </h5>
+
+        <input type="text" id="name" name="name" class="pole" placeholder="Vaše meno" required>
+        <input type="email" id="email" name="email" class="pole" placeholder="Váš email" required>
+        <input type="url" id="image" name="image" placeholder="Pridajte URL obázka" class="pole">
+
+        <h5>
+            Odkiaľ ste sa dozvedeli o tejto stránke?
+        </h5>
+
+        <div class="radioStuff">
+            <input type="radio" id="contats" name="source" value="od známych"
+                   checked>
+            <label for="contats">Od známych</label>
+        </div>
+
+        <div class="radioStuff">
+            <input type="radio" id="social" name="source" value="zo socialných sietí">
+            <label for="social">Zo sociálných sietí</label>
+        </div>
+
+        <div class="radioStuff">
+            <input type="radio" id="other" name="source" value="náhodou">
+            <label for="other">náhodou</label>
+        </div>
+
+        <h5>
+            Ako hodnotíte náš blog?
+        </h5>
+
+        <div class="radioStuff">
+            <input type="radio" id="good" name="rating" value="výborny"
+                   checked>
+            <label for="good">Je výborný</label>
+        </div>
+
+        <div class="radioStuff">
+            <input type="radio" id="ok" name="rating" value="je ok">
+            <label for="ok">Je priemerný</label>
+        </div>
+
+        <div class="radioStuff">
+            <input type="radio" id="weak" name="rating" value="slabota">
+            <label for="weak">nič moc :(</label>
+        </div>
+
+        <label for="words" class="keyWords">Kľúčové slová našej stránky:</label>
+        <input type="text" list="wordsList" id="words" name="words" class="keyWordsInput"/>
+
+        <datalist id="wordsList">
+            <option value="Basketbal">
+            <option value="Blog">
+            <option value="NBA">
+        </datalist>
+
+        <textarea id="message" name="message" rows="6" placeholder="Správa pre nás" required></textarea>
+
+        <div class="checkboxStuff">
+            <input type="checkbox" id="show" name="show" value="show">
+            <label for="show">Odporúčim túto stránku známym</label>
+        </div>
+
+        <div class="checkboxStuff">
+            <input type="checkbox" id="newsletter" name="newsletter" value="newsletter">
+            <label for="newsletter">Chcem dostávať newsletter</label>
+        </div>
+
+        <div class="tlacidla">
+            <button type="reset" class="reset" >RESETOVAŤ</button>
+            <button type="submit" class="submit" id="btn" >ODOSLAŤ</button>
+        </div>
+
+    </form>
+
+
+    <h4 class="opinionHeader">Povedali o nás:</h4>
+    <div id="opinionBox" class="opinionBox"></div>
+
+
+</main>
+
+<!-- modal -->
+<div id="Modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Vaša správa bola odoslaná,</p>
+        <h2>LEAGUECHECK</h2>
+    </div>
+
+</div>
+
+
+<footer>
+    <span class="signature">MAJIRKY</span>
+</footer>
+
+<script  type="module" src="js/index.js">
+
+</script>
+
+<script id="mustacheTmp" type="text/template">
+    <section class="opinionSection">
+        <p><b>{{name}}</b> | {{email}} | <i>{{createdDate}}</i></p>
+        <p>Priložený obrázok: {{image}}</p>
+        <p>Slovo vystihujúce tématiku stránky: {{words}}</p>
+        <p>{{show}}</p>
+        <p>{{newsletter}}</p>
+        <p>Tento blog hodnotim ako: {{rating}}</p>
+        <p>O tomto blogu som sa dozvedel: {{source}}</p>
+        <p><b>Komentár:</b> {{comment}}</p>
+
+    </section>
+</script>
+
+</body>
+</html>

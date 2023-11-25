@@ -29,13 +29,13 @@ class Rating:
         return json.dumps(self.template, indent=2)
     
 
-    def get_prompt(self) -> str:
+    def get_prompt(self, html_file, css_file, js_file) -> str:
         """formulates prompt to chatgpt
 
         Returns:
             str: string to pass to chatgpt
         """
-        prompt = ""
+        prompt = html_file + "\n" + css_file + "\n" + js_file + "\n"
 
         instruction = "Rate provided html, css and javascript file. If some file is missing, rate it as 0. Fill out this json template:\n"
 
