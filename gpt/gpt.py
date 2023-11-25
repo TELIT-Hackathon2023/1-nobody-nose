@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import os
 import requests
 
-
 # Load the .env file
 load_dotenv()
 
@@ -32,7 +31,7 @@ def analyze_html_with_gpt(prompt, html, api_key):
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4-1106-preview",  # Specify GPT-4 Turbo model
+            model="gpt-4-1106-preview",  # Specify model
             messages=[{"role": "system", "content": "You are a helpful assistant."}, 
                 {"role": "user", "content": prompt}],
             max_tokens=150  # Adjust the number of tokens as needed
@@ -44,14 +43,11 @@ def analyze_html_with_gpt(prompt, html, api_key):
 
 
 #create main function
-def main():
-    prompt = "analyze a website html and return the result"
+def get_response(prompt, url):
     api_key = os.getenv("OPENAI_API_KEY")
-    url = "https://telekom.sk"  # Replace with your desired URL
     html_content = scrape_html(url)
     response = analyze_html_with_gpt(prompt, html_content, api_key)
     print(response)
 
-#execute main function
-if __name__ == "__main__":
-    main()
+
+

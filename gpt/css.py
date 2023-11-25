@@ -1,35 +1,17 @@
 import requests
-from bs4 import BeautifulSoup
-import os
+from bs4 import BeautifulSoup as bs
+from urllib.parse import urljoin
 
-def print_css(url):
-    try:
-        # Send a request to the URL
-        response = requests.get(url)
-        response.raise_for_status()
+# URL of the web page you want to extract
+url = "https://telekom.sk"
 
-        # Parse the content with BeautifulSoup
-        soup = BeautifulSoup(response.content, 'html.parser')
+# initialize a session & set User-Agent as a regular browser
+session = requests.Session()
+session.headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
 
-        # Find all links to CSS files
-        css_links = soup.find_all('link', rel='stylesheet')
+# get the HTML content
+html = session.get(url).content
 
-        for i, link in enumerate(css_links):
-            href = link['href']
-            if not href.startswith('http'):
-                href = os.path.join(url, href)
-
-            # Fetch each CSS file
-            css_response = requests.get(href)
-            css_response.raise_for_status()
-
-            # Print CSS content
-            print(f'CSS File {i+1} Content:\n{css_response.text}\n')
-
-        print(f'Total {len(css_links)} CSS files found.')
-
-    except requests.RequestException as e:
-        print(f'An error occurred: {e}')
-
-# Example usage
-print_css('https://www.telekom.sk')
+# parse HTML using beautiful soup
+soup = bs(html, "html.parser")
+print(soup)
