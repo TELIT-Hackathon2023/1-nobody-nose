@@ -27,8 +27,8 @@ def analyze_html_with_gpt(prompt, api_key):
             frequency_penalty=0.5,
             presence_penalty=0.2,
         )
-
         return response['choices'][0]['message']['content']
+        
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
