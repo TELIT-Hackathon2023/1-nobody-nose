@@ -1,0 +1,35 @@
+{
+    "Website Evaluation": {
+      "Page Title": "[Page Title]",
+      "URL": "[Website URL]",
+      "Evaluation Date": "[Evaluation Date]",
+      "Evaluator": "[Evaluator's Name]",
+      "HTML File": {
+        "Semantic Markup": "[0/1]",
+        "SEO Meta Information": "[0/1]",
+        "Interactive Elements": "[0/1]",
+        "Engaging Content": "[0/1]",
+        "Statistics and Analytics": "[0/1]"
+      },
+      "CSS File": {
+        "Fonts and Typography": "[0/1]",
+        "Contrast and Colors": "[0/1]",
+        "Responsive Layout": "[0/1]",
+        "Animations and Dynamic Effects": "[0/1]",
+        "Clean and Organized Code": "[0/1]"
+      },
+      "JavaScript File": {
+        "Proper JavaScript Usage": "[0/1]",
+        "Performance and Optimization": "[0/1]",
+        "Security": "[0/1]",
+        "Compatibility and Testing": "[0/1]",
+        "Documentation": "[0/1]"
+      }
+    },
+    "Total Score HTML": "[HTML_Sum]/5",
+    "Total Score CSS": "[CSS_Sum]/5",
+    "Total Score JavaScript": "[JavaScript_Sum]/5",
+    "Total Website Score": "[HTML_Sum + CSS_Sum + JavaScript_Sum]/15",
+    "Notes and Recommendations": "[Detailed notes and recommendations for improvement]"
+  }
+  
