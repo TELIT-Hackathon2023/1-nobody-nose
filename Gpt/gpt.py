@@ -23,7 +23,7 @@ def analyze_html_with_gpt(prompt, api_key):
             model="gpt-4-1106-preview",  # Specify model
             messages=[{"role": "system", "content": "You are a helpful assistant."}, 
                 {"role": "user", "content": prompt}],
-            max_tokens=150  # Adjust the number of tokens as needed
+            max_tokens=1000  # Adjust the number of tokens as needed
         )
         return response['choices'][0]['message']['content']
     except Exception as e:
