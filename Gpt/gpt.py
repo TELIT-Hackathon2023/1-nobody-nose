@@ -5,7 +5,7 @@ import os
 # Load the .env file
 load_dotenv()
 
-def analyze_html_with_gpt(prompt, html, css, js, api_key):
+def analyze_html_with_gpt(prompt, api_key):
     """
     This function takes HTML content and sends it to OpenAI's GPT-4 Turbo model for analysis using the new OpenAI API interface.
     It returns the model's response.
