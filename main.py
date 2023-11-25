@@ -15,10 +15,15 @@ if __name__ == '__main__':
 
     prompt = rating.get_prompt(html_file, css_file, js_file)
 
-    output = get_response(prompt=prompt, url="https://telekom.sk")
+    output = get_response(prompt=prompt)
 
     #print(type(output))
-    #print(output)
+    print(output)
+    print("--------------")
+    #score = rating.extract_score(output)
+    #print(f"score: {score}")
+
+
 
 
 

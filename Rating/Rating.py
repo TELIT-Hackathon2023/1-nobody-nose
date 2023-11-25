@@ -37,7 +37,7 @@ class Rating:
         """
         prompt = html_file + "\n" + css_file + "\n" + js_file + "\n"
 
-        instruction = "Rate provided html, css and javascript file. If some file is missing, rate it as 0. Fill out this json template:\n"
+        instruction = "Rate provided html, css and javascript file. If some file is missing, rate it as 0. Fill out this json template and do not add additional text after:\n"
 
         template = self.get_template()
 
