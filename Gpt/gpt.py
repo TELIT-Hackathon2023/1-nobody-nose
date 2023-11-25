@@ -10,25 +10,29 @@ def analyze_html_with_gpt(prompt, api_key):
     This function takes HTML content and sends it to OpenAI's GPT-4 Turbo model for analysis using the new OpenAI API interface.
     It returns the model's response.
 
-    :param html: A string containing HTML content.
+    :param prompt: A string containing HTML content.
     :param api_key: Your OpenAI API key.
     :return: A string containing the GPT-4 Turbo model's response.
     """
     openai.api_key = api_key
 
-    prompt = f"{prompt}"
-
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4-1106-preview",  # Specify model
-            messages=[{"role": "system", "content": "You are a helpful assistant."}, 
-                {"role": "user", "content": prompt}],
-            max_tokens=1000  # Adjust the number of tokens as needed
+            model="gpt-4-1106-preview",
+            messages=[{"role": "system", "content": "You are an assistant skilled in analyzing and providing feedback on Webiste content. HTML CSS AND JS are the three main components of a website. You are given a website's HTML, CSS and JS files. You need to rate the website based on the given"},
+                        {"role": "user", "content": prompt}],
+            max_tokens=4095,
+            temperature=0.4,
+            top_p=0.8,
+            frequency_penalty=0.5,
+            presence_penalty=0.2,
         )
+
         return response['choices'][0]['message']['content']
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
+
 
 
 #create main function
