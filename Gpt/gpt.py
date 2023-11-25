@@ -27,7 +27,7 @@ def analyze_html_with_gpt(prompt, html, css, js, api_key):
     """
     openai.api_key = api_key
 
-    prompt = f"{html}\n{css}\n{js}{prompt}"
+    prompt = f"{prompt}"
 
     try:
         response = openai.ChatCompletion.create(
@@ -43,10 +43,10 @@ def analyze_html_with_gpt(prompt, html, css, js, api_key):
 
 
 #create main function
-def get_response(prompt, html, css, js):
+def get_response(prompt):
     api_key = os.getenv("OPENAI_API_KEY")
     html_content = scrape_html(url)
-    response = analyze_html_with_gpt(prompt, html, css, js, api_key)
+    response = analyze_html_with_gpt(prompt, api_key)
     return response
 
 
